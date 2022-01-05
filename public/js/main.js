@@ -38,6 +38,7 @@ charForm.addEventListener('submit',(event) =>{
     
     //clear input 
     event.target.elements.msg.value = '';
+    tinymce.activeEditor.setContent('');
     event.target.elements.msg.focus();
 
 })
