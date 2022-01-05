@@ -41,6 +41,7 @@ charForm.addEventListener('submit',(event) =>{
     tinymce.activeEditor.setContent('');
     event.target.elements.msg.focus();
 
+
 })
 // output message 
 function outputMessage(message){
