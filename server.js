@@ -43,7 +43,7 @@ io.on('connection', socket =>{
     // listen for message 
     socket.on('chat-message',(message)=>{
         const user = getCurrentUser(socket.id); 
-        io.to(user.room).emit('message',formatMessage(user.username, message));
+        io.to(user.room).emit('message',formatMessage(user.username, message, user.color));
     })
     // disconnects 
     socket.on('disconnect',()=>{

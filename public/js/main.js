@@ -31,7 +31,8 @@ socket.on('message',message=>{
 charForm.addEventListener('submit',(event) =>{
     event.preventDefault();
 
-    const message = event.target.elements.msg.value;
+    const message = tinymce.get("msg").getContent({ format: "text" })//event.target.elements.msg.value;
+
     // emit a message to server 
     socket.emit('chat-message', message);
     
@@ -44,7 +45,7 @@ charForm.addEventListener('submit',(event) =>{
 function outputMessage(message){
     const div = document.createElement('div');
     div.classList.add('message');
-    div.innerHTML = `  <p class="meta">${message.username} <span>${message.time}</span></p>
+    div.innerHTML = `  <p class="meta" style="color:${message.color}">${message.username} <span>${message.time}</span></p>
     <p class="text">
         ${message.text}
     </p>`;
